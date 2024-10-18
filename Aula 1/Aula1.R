@@ -73,10 +73,11 @@ matriz_b
 # Soma
 matriz_a + matriz_b
 
+# Subtração
+matriz_a - matriz_b
+
 # Multiplicação
 matriz_a + matriz_b
 
 # Divisão
 matriz_a / matriz_b
-
-
