@@ -42,7 +42,6 @@ write_csv(na_mao, "output/na_mao.csv")
 write_csv2(na_mao, "output/na_mao.csv")
 
 # Importação como planilha:
-# importação de planilhas
 enem <- read_xlsx("dados/brutos/amostra_enem_salvador.xlsx")
 dentes <- read_ods("dados/brutos/crescimentos_dentes.ods")
 glimpse(dentes)
@@ -52,3 +51,46 @@ mtcarros <- read_csv2("dados/brutos/mtcarros.csv")
 write_ods(milhas, "output/milhas.ods")
 write_csv2(diamante, "output/diamante.csv")
 write_xlsx(velho_fiel, "output/velho_fiel.xlsx")
+
+
+alunos <- tibble(
+  nome = c("Josué", "João","Josefina","Pedro"),
+  prova_1 = c(10,2,10,5),
+  prova_2 = c(1,10,1,10),
+  prova_3 = c(10,10,10,10)
+)
+alunos
+# Função
+padronizar <- function(vetor_notas){
+  notas_0_1 <- vetor_notas / 10
+  notas_0_1
+  # ou
+  # return notas_0_1
+}
+
+padronizar(alunos$prova_1)
+padronizar(alunos$prova_2)
+padronizar(alunos$prova_3)
+
+# Alunos da primeira prova
+mean(alunos$prova_1) # Calcula Média
+mean(alunos$prova_2) # Calcula Média
+mean(alunos$prova_3) # Calcula Média
+
+# Método de repetição
+for(k in c(2,3,4)){
+  print(mean(alunos[[k]]))
+}
+
+sorte <- runif(1)
+
+if(sorte >= 0.5){
+  print("Ganhei na mega sena")
+}
+else if (sorte<=0.25 && sorte<0.5){
+  print("Não foi dessa vez, mas foi quase.")
+}
+else{
+  print("Vá trabalhar")
+}
+
