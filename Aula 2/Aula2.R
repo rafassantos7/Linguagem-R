@@ -94,3 +94,35 @@ else{
   print("Vá trabalhar")
 }
 
+# Verbos
+
+enem_feminino <- enem |> filter(tp_sexo == "Feminino") #Filter:
+# Filtra com base na coluna
+glimpse(enem_feminino)
+
+enem_feminino <- enem_feminino |> relocate(q025, .after = nu_inscricao) # Relocate
+# Muda a coluna de posição
+
+
+arrange(desc) // arrange() # Arrange: 
+# Maior/Menor // Menor/Maior
+# Ordena linhas na ordem Crescente ou Descrecente
+
+df_coord_limpo <- (coordenadores) |> 
+  distinct(nome, .keep all = TRUE)# Distinct:
+# Ignora repetições
+df_coord_limpo
+
+enem_feminino_notas <- enem_feminino |> 
+  select(nu_inscricao,nu_nota_1c,nu_nota_mt)
+
+# Criar uma nova coluna
+enem_feminino <- enem_feminino |>
+  mutate(media = (nu_nota1c + nu_nota_mt) / 2 |>
+  mutate(nu_nota_mt = nu_nota_mt / 100,
+  nu_nota_1c = nu_nota_1c / 100)
+  
+# Renomear
+enem_feminino_notas<- enem_feminino_notas |>
+  rename(media_pt_mt = media, portugues = nu_nota_lc, 
+         matematica = nu_nota_mt)
